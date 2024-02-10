@@ -1,5 +1,3 @@
-using W.Api.Models;
-
 public class Workout
 {
     public int Id { get; set; }
