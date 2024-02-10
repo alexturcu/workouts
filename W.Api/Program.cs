@@ -1,3 +1,5 @@
+using W.Api.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -15,29 +17,131 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-var summaries = new[]
+app.MapGet("/workouts", () =>
 {
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
+    var workouts = new Workout[]
+    {
+        new Workout
+        {
+            Id = 1,
+            DayOfWeek = DayOfWeek.Tuesday,
+            Exercise =
+            [
+                new Exercise
+                {
+                    Id = 1,
+                    Name = "Squat",
+                    Description = "At least 2 sets of 12-16 reps.",
+                    MuscleGroup = MuscleGroup.Legs
+                },
+                new Exercise
+                {
+                    Id = 2,
+                    Name = "Incline Bench Press",
+                    Description = "At least 2 sets of 8-12 reps.",
+                    MuscleGroup = MuscleGroup.Chest
+                },
+                new Exercise
+                {
+                    Id = 3,
+                    Name = "Dumbbell Lateral Raises",
+                    Description = "At least 2 sets of 8-12 reps.",
+                    MuscleGroup = MuscleGroup.Shoulders
+                }
+            ],
+        },
+        new Workout
+        {
+            Id = 2,
+            DayOfWeek = DayOfWeek.Thursday,
+            Exercise =
+            [
+                new Exercise
+                {
+                    Id = 1,
+                    Name = "Deadlift",
+                    Description = "At least 2 sets of 12-16 reps.",
+                    MuscleGroup = MuscleGroup.Legs
+                },
+                new Exercise
+                {
+                    Id = 2,
+                    Name = "Bent Over Row",
+                    Description = "At least 2 sets of 8-12 reps.",
+                    MuscleGroup = MuscleGroup.Back
+                },
+                new Exercise
+                {
+                    Id = 3,
+                    Name = "Decline Crunch",
+                    Description = "As many as possible.",
+                    MuscleGroup = MuscleGroup.Abs
+                }
+            ],
+        },
+        new Workout
+        {
+            Id = 3,
+            DayOfWeek = DayOfWeek.Saturday,
+            Exercise =
+            [
+                new Exercise
+                {
+                    Id = 1,
+                    Name = "Dips",
+                    Description = "At least 2 sets of 8-12 reps.",
+                    MuscleGroup = MuscleGroup.Chest
+                },
+                new Exercise
+                {
+                    Id = 2,
+                    Name = "Lying Tricep Extension",
+                    Description = "At least 2 sets of 8-12 reps.",
+                    MuscleGroup = MuscleGroup.Triceps
+                },
+                new Exercise
+                {
+                    Id = 3,
+                    Name = "Military Press",
+                    Description = "At least 2 sets of 8-12 reps.",
+                    MuscleGroup = MuscleGroup.Shoulders
+                }
+            ],
+        },
+        new Workout
+        {
+            Id = 4,
+            DayOfWeek = DayOfWeek.Sunday,
+            Exercise =
+            [
+                new Exercise
+                {
+                    Id = 1,
+                    Name = "Pull Ups",
+                    Description = "At least 2 sets of 8-12 reps.",
+                    MuscleGroup = MuscleGroup.Back
+                },
+                new Exercise
+                {
+                    Id = 2,
+                    Name = "Dumbbell Curl",
+                    Description = "At least 2 sets of 8-12 reps.",
+                    MuscleGroup = MuscleGroup.Biceps
+                },
+                new Exercise
+                {
+                    Id = 3,
+                    Name = "Decline Crunch",
+                    Description = "As many as possible.",
+                    MuscleGroup = MuscleGroup.Abs
+                }
+            ],
+        }
+    };
 
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast =  Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
+    return workouts;
 })
-.WithName("GetWeatherForecast")
+.WithName("GetWorkouts")
 .WithOpenApi();
 
 app.Run();
-
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
