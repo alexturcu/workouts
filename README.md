@@ -1,2 +1,2 @@
 # workouts
-Daily workout plans
+Workout plans
