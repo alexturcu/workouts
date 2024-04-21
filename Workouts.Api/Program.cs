@@ -71,9 +71,9 @@ app.MapGet("/workouts", () =>
                 new Exercise
                 {
                     Id = 3,
-                    Name = "Decline Crunch",
-                    Description = "As many as possible.",
-                    MuscleGroup = MuscleGroup.Abs
+                    Name = "Dumbbell Curl",
+                    Description = "At least 2 sets of 8-12 reps.",
+                    MuscleGroup = MuscleGroup.Biceps
                 }
             ],
         },
