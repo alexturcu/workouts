@@ -28,14 +28,14 @@ app.MapGet("/workouts", () =>
                 new Exercise
                 {
                     Id = 1,
-                    Name = "Squat",
-                    Description = "At least 2 sets of 12-16 reps.",
-                    MuscleGroup = MuscleGroup.Legs
+                    Name = "Lying Tricep Extension",
+                    Description = "At least 2 sets of 8-12 reps.",
+                    MuscleGroup = MuscleGroup.Triceps
                 },
                 new Exercise
                 {
                     Id = 2,
-                    Name = "Incline Bench Press",
+                    Name = "Incline Dumbbell Flies",
                     Description = "At least 2 sets of 8-12 reps.",
                     MuscleGroup = MuscleGroup.Chest
                 },
@@ -59,7 +59,7 @@ app.MapGet("/workouts", () =>
                     Id = 1,
                     Name = "Deadlift",
                     Description = "At least 2 sets of 12-16 reps.",
-                    MuscleGroup = MuscleGroup.Legs
+                    MuscleGroup = MuscleGroup.Back
                 },
                 new Exercise
                 {
@@ -71,6 +71,13 @@ app.MapGet("/workouts", () =>
                 new Exercise
                 {
                     Id = 3,
+                    Name = "Incline Crunches",
+                    Description = "At least 2 sets. As many as possible.",
+                    MuscleGroup = MuscleGroup.Abs
+                },
+                new Exercise
+                {
+                    Id = 4,
                     Name = "Dumbbell Curl",
                     Description = "At least 2 sets of 8-12 reps.",
                     MuscleGroup = MuscleGroup.Biceps
@@ -80,20 +87,20 @@ app.MapGet("/workouts", () =>
         new Workout
         {
             Id = 3,
-            DayOfWeek = DayOfWeek.Saturday,
+            DayOfWeek = DayOfWeek.Friday,
             Exercise =
             [
                 new Exercise
                 {
                     Id = 1,
-                    Name = "Dips",
-                    Description = "At least 2 sets of 8-12 reps.",
+                    Name = "Push Ups",
+                    Description = "At least 3 sets reps. As many as possible.",
                     MuscleGroup = MuscleGroup.Chest
                 },
                 new Exercise
                 {
                     Id = 2,
-                    Name = "Lying Tricep Extension",
+                    Name = "Standing Tricep Extension",
                     Description = "At least 2 sets of 8-12 reps.",
                     MuscleGroup = MuscleGroup.Triceps
                 },
@@ -115,23 +122,30 @@ app.MapGet("/workouts", () =>
                 new Exercise
                 {
                     Id = 1,
+                    Name = "Roman chair abs",
+                    Description = "At least 2 sets. As many as possible.",
+                    MuscleGroup = MuscleGroup.Abs
+                },
+                new Exercise
+                {
+                    Id = 2,
                     Name = "Pull Ups",
                     Description = "At least 2 sets of 8-12 reps.",
                     MuscleGroup = MuscleGroup.Back
                 },
                 new Exercise
                 {
-                    Id = 2,
-                    Name = "Dumbbell Curl",
-                    Description = "At least 2 sets of 8-12 reps.",
+                    Id = 3,
+                    Name = "Ez Bar Curls",
+                    Description = "At least 3 sets of 8-12 reps.",
                     MuscleGroup = MuscleGroup.Biceps
                 },
                 new Exercise
                 {
-                    Id = 3,
-                    Name = "Decline Crunch",
-                    Description = "As many as possible.",
-                    MuscleGroup = MuscleGroup.Abs
+                    Id = 4,
+                    Name = "Standing Dumbbell Shrugs",
+                    Description = "At least 2 sets of 8-12 reps.",
+                    MuscleGroup = MuscleGroup.Shoulders
                 }
             ],
         }
